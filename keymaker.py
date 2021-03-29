@@ -53,12 +53,41 @@ def create_matrix(word1, word2):
 print(create_matrix('mamas', 'papas'))
 
 
+def get_col(matrix, n):
+    col = []
+    for line in matrix:
+        col.append(line[n])
+    return col
+
+        
+
+def get_cols(matrix):
+    cols = []
+    print(len(matrix))
+    for index in range(len(matrix)-1):
+        cols.append(get_col(matrix, index))
+    return cols
+
+
+def nested_maker(lst):
+    nested_matrix = [[char for char in string] for string in lst]
+    return nested_matrix
+
+
 def zig_zag_concatenate(matrix):
-    """
-    >>> zig_zag_concatenate(['abc', 'def', 'ghi', 'jkl'])
-    'adgjkhebcfil'
-    """
-    pass
+    nested_matrix = nested_maker(matrix)
+    cols = get_cols(nested_matrix)
+    for col_index in range(len(cols)):
+        if col_index % 2 == 1:
+            cols[col_index].reverse()
+    zig_zag_string = ""
+    for lst in cols:
+        for char in lst:
+            zig_zag_string += char
+    return zig_zag_string
+
+
+print(zig_zag_concatenate(['abc', 'def', 'ghi', 'jkl']))
 
 
 def rotate_right(word, n):
