@@ -99,11 +99,17 @@ print(rotate_right('abcdefgh', 3))
 
 
 def get_square_index_chars(word):
-    """
-    >>> get_square_index_chars('abcdefghijklm')
-    'abej'
-    """
-    pass
+    new_word = ''
+    for letter_index in range(len(word)):
+        letter_index *= letter_index
+        if letter_index > len(word):
+            return new_word
+        new_word += word[letter_index]
+    return new_word
+
+
+print(get_square_index_chars('abcdefghijklm'))
+
 
 
 def remove_odd_blocks(word, block_length):
