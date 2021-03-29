@@ -38,12 +38,19 @@ def abc_mirror(word):
 print(abc_mirror('az'))
 
 
+def find_index(letter):
+    alphabet = string.ascii_lowercase
+    return alphabet.index(letter)
+
+
 def create_matrix(word1, word2):
-    """
-    >>> create_matrix('mamas', 'papas')
-    ['bpbph', 'mamas', 'bpbph', 'mamas', 'esesk']
-    """
-    pass
+    matrix = []
+    for char in word2:
+        new_word = shift_characters(word1, find_index(char))            
+        matrix.append(new_word)
+    return matrix
+
+print(create_matrix('mamas', 'papas'))
 
 
 def zig_zag_concatenate(matrix):
