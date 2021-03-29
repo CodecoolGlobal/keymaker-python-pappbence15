@@ -28,11 +28,14 @@ print(pad_up_to("aaa", 2, 100))
 
 
 def abc_mirror(word):
-    """
-    >>> abc_mirror('abcd')
-    'zyxw'
-    """
-    pass
+    new_word = ''
+    alphabet = string.ascii_lowercase
+    char_indexes = [(alphabet.index(char)* -1) - 1 for char in word]
+    for number in char_indexes:
+        new_word += alphabet[number]
+    print(new_word)
+
+abc_mirror('az')
 
 
 def create_matrix(word1, word2):
