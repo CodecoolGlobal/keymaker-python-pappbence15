@@ -113,11 +113,25 @@ print(get_square_index_chars('abcdefghijklm'))
 
 
 def remove_odd_blocks(word, block_length):
-    """
-    >>> remove_odd_blocks('abcdefghijklm', 3)
-    'abcghim'
-    """
-    pass
+    new_list = []
+    even_list = []
+    start_index = 0
+    length = block_length
+    final_string = ""
+    for i in range(0, len(word), block_length):
+        new_list.append(word[start_index:length])
+        start_index = length
+        length += block_length
+    for i in range(len(new_list)):
+        if i % 2 != 1:
+            even_list.append(new_list[i])
+    for st in even_list:
+        final_string += st
+    return final_string
+
+    
+
+print(remove_odd_blocks('abcdefghijklm', 3))
 
 
 def reduce_to_fixed(word, n):
