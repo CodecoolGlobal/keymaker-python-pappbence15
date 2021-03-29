@@ -1,4 +1,5 @@
 import string
+import math
 
 def shift_characters(word, shift):
     alphabet = string.ascii_lowercase
@@ -14,11 +15,16 @@ print(shift_characters('abby', 5))
 
 
 def pad_up_to(word, shift, n):
-    """
-    >>> pad_up_to('abb', 5, 11)
-    'abbfggkllpq'
-    """
-    pass
+    new_shift = shift
+    times = math.ceil(n / len(word))
+    pad_string = word
+    for i in range(times):
+        pad_string += shift_characters(word, new_shift)
+        new_shift += shift
+    return pad_string[:n]
+
+
+print(pad_up_to("aaa", 2, 100))
 
 
 def abc_mirror(word):
