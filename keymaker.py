@@ -33,9 +33,9 @@ def abc_mirror(word):
     char_indexes = [(alphabet.index(char)* -1) - 1 for char in word]
     for number in char_indexes:
         new_word += alphabet[number]
-    print(new_word)
+    return new_word
 
-abc_mirror('az')
+print(abc_mirror('az'))
 
 
 def create_matrix(word1, word2):
