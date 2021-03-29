@@ -91,11 +91,11 @@ print(zig_zag_concatenate(['abc', 'def', 'ghi', 'jkl']))
 
 
 def rotate_right(word, n):
-    """
-    >>> rotate_right('abcdefgh', 3)
-    'fghabcde'
-    """
-    pass
+    real_n = n % len(word)
+    new_string = word[-real_n:] + word[:-real_n]
+    return new_string
+
+print(rotate_right('abcdefgh', 3))
 
 
 def get_square_index_chars(word):
