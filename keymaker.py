@@ -132,11 +132,13 @@ print(remove_odd_blocks('abcdefghijklm', 3))
 
 
 def reduce_to_fixed(word, n):
-    """
-    >>> reduce_to_fixed('abcdefghijklm', 6)
-    'bafedc'
-    """
-    pass
+    sliced_word = word[:n]
+    real_n = n // 3
+    new_string = sliced_word[real_n:] + sliced_word[:real_n]
+    return new_string
+
+
+print(reduce_to_fixed('abcdefghijklm', 6))
 
 
 def hash_it(word):
