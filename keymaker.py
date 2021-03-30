@@ -114,7 +114,6 @@ print(get_square_index_chars('abcdefghijklm'))
 
 def remove_odd_blocks(word, block_length):
     new_list = []
-    even_list = []
     start_index = 0
     length = block_length
     final_string = ""
@@ -124,9 +123,7 @@ def remove_odd_blocks(word, block_length):
         length += block_length
     for i in range(len(new_list)):
         if i % 2 != 1:
-            even_list.append(new_list[i])
-    for st in even_list:
-        final_string += st
+            final_string += new_list[i]
     return final_string
 
     
